@@ -65,6 +65,40 @@ Self-reflective RAG with adaptive retrieval and generation:
 - **self_rag_step1.ipynb** through **self_rag_step7.ipynb** - Progressive implementation
 - **self_rag_web.ipynb** - Web-enabled variant
 
+### ⚡ Hybrid Retrieval
+```mermaid
+graph TD
+  U[User Query] --> B[BM25 / Sparse Retriever]
+  U --> E[Embedding Retriever]
+  B --> F[Fusion / Reranker]
+  E --> F
+  F --> D[Top Documents]
+  D --> L[LLM Answer]
+```
+Advanced retrieval fusion combining lexical and dense search for better relevance and robustness:
+- **hybrid-retrieval/1-explore-data.py** - Data understanding and preprocessing
+- **hybrid-retrieval/2-bm25.py** - Sparse retrieval with BM25
+- **hybrid-retrieval/3-embed.py** - Embedding-based vector search
+- **hybrid-retrieval/4-rrf.py** - Reciprocal rank fusion
+- **hybrid-retrieval/5-rerank.py** - Re-ranking candidate documents
+- **hybrid-retrieval/6-evaluate.py** - End-to-end evaluation and metrics
+
+### 🌐 Graph RAG
+```mermaid
+graph TD
+  U[User Query] --> E[Entity / Graph Extraction]
+  E --> G[Knowledge Graph]
+  G --> R[Graph Retrieval]
+  R --> D[Supporting Facts]
+  D --> L[LLM Synthesis]
+```
+Graph-enhanced RAG using knowledge graphs to capture relationships, context, and structured reasoning:
+- **GraphRAG/GraphRAG.py** - Graph retrieval and reasoning pipeline
+- **GraphRAG/VectorRAG.py** - Vector-augmented retrieval baseline
+- **GraphRAG/main.ipynb** - Interactive experiment notebook
+- **GraphRAG/prep.ipynb** - Data preparation and graph construction
+- **GraphRAG/run.py** - End-to-end run script
+
 ## 🛠️ Setup
 
 This project uses Python with a virtual environment (`env/`). To get started:
